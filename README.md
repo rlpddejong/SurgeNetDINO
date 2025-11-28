@@ -52,3 +52,14 @@ For questions or issues regarding this repository, please contact the correspond
 
 **Ronald L.P.D. de Jong**  
 Email: r.l.p.d.d.jong@tue.nl  
+
+## 🙏 Acknowledgements
+
+We would like to thank the authors and maintainers of the original DINO repositories for making their work publicly available:
+
+- [DINO v1](https://github.com/facebookresearch/dino)  
+- [DINO v2](https://github.com/facebookresearch/dinov2)  
+- [DINO v3](https://github.com/facebookresearch/dinov3)  
+
+Their open-source contributions provided the foundation for our work on surgical representation learning.
+
