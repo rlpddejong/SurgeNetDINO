@@ -40,6 +40,9 @@ Alternatively, you can download the model weights using the provided links below
 | **DINOv3** | ViT-b | [Download](https://huggingface.co/rlpddejong/SurgeNetXL_DINOv1-v3/resolve/main/DINOv3_ViTb16_size336_SurgeNetXL.pth?download=true) |
 | **DINOv3** | ViT-l | [Download](https://huggingface.co/rlpddejong/SurgeNetXL_DINOv1-v3/resolve/main/DINOv3_ViTl16_size336_SurgeNetXL.pth?download=true) |
 
+## 📄 Pretraining configurations
+The pretraining configurations can be found in ``dinov1_configs``, ``dinov2_configs``, and ``dinov3_configs``. Note that for ``dinov1``, we provide a `.sh` file instead of a configuration file following the original implementation. For further pretraining instructions, please refer to the original implementations of DINO: [DINOv1](https://github.com/facebookresearch/dino), [DINOv2](https://github.com/facebookresearch/dinov2), and [DINOv3](https://github.com/facebookresearch/dinov3).
+
 ## 📚 Citation
 If you use these models or the dataset in your work, please cite our paper:
 ```bibtex
@@ -57,9 +60,9 @@ Email: r.l.p.d.d.jong@tue.nl
 
 We would like to thank the authors and maintainers of the original DINO repositories for making their work publicly available:
 
-- [DINO v1](https://github.com/facebookresearch/dino)  
-- [DINO v2](https://github.com/facebookresearch/dinov2)  
-- [DINO v3](https://github.com/facebookresearch/dinov3)  
+- [DINOv1](https://github.com/facebookresearch/dino)  
+- [DINOv2](https://github.com/facebookresearch/dinov2)  
+- [DINOv3](https://github.com/facebookresearch/dinov3)  
 
 Their open-source contributions provided the foundation for our work on surgical representation learning.
 
