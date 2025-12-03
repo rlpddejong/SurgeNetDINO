@@ -1,0 +1,31 @@
+# DINOv1 training configuration using ViT-Base architecture
+torchrun --nnodes 1 \
+         --nproc_per_node 4 main_dino.py \
+         --arch vit_base \
+         --out_dim 65536 \
+         --norm_last_layer True \
+         --warmup_teacher_temp 0.04 \
+         --teacher_temp 0.04 \
+         --warmup_teacher_temp_epochs 0 \
+         --use_fp16 True \
+         --weight_decay 0.04 \
+         --weight_decay_end 0.4 \
+         --clip_grad 3.0 \
+         --batch_size_per_gpu 136 \
+         --epochs 50 \
+         --freeze_last_layer 1 \
+         --lr 0.0005 \
+         --warmup_epochs 10 \
+         --min_lr 0.000001 \
+         --global_crops_scale 0.4 1.0 \
+         --local_crops_scale 0.05 0.4 \
+         --local_crops_number 8 \
+         --optimizer adamw \
+         --momentum_teacher 0.996 \
+         --use_bn_in_head False \
+         --data_path /SurgeNetDataset \
+         --output_dir OutputFolder \
+         --saveckp_freq 5 \
+         --seed 0 \
+         --num_workers 32 \
+         --dist_url 'env://'
