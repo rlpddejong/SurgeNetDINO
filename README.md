@@ -3,7 +3,7 @@
 This repository contains the official code and pretrained model weights for the paper:
 
 **_“Towards Effective Surgical Representation Learning with DINO Models”_**  
-**(Under Review for MIDL 2026)**
+**(Accepted for Medical Imaging with Deep Learning (MIDL) 2026)**
 
 ## ⚙️ Requirements
 - Python 3.9+
