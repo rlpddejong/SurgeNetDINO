@@ -65,11 +65,12 @@ Email: r.l.p.d.d.jong@tue.nl
 
 ## 🙏 Acknowledgements
 
-We would like to thank the authors and maintainers of the original DINO repositories for making their work publicly available:
+We would like to thank the authors and maintainers of SurgeNetXL and the original DINO repositories for making their work publicly available:
 
+- [SurgeNetXL](https://github.com/TimJaspers0801/SurgeNet)
 - [DINOv1](https://github.com/facebookresearch/dino)  
 - [DINOv2](https://github.com/facebookresearch/dinov2)  
-- [DINOv3](https://github.com/facebookresearch/dinov3)  
+- [DINOv3](https://github.com/facebookresearch/dinov3)
 
 Their open-source contributions provided the foundation for our work on surgical representation learning.
 
