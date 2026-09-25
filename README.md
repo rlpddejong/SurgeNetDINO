@@ -50,26 +50,26 @@ The pretraining configurations can be found in ``dinov1_configs``, ``dinov2_conf
 - **Surgical phase recognition:** For finetuning on surgical phase recognition, please refer to [SurgPhaseBench](https://github.com/Yipinggggg/SurgPhaseBench).
 
 ## 📊 Main results
-Dice score for semantic segmentation, accuracy (%) for surgical phase recognition, and online inference efficiency of the segmentation models on a single NVIDIA H100 GPU. Best results per DINO version are shown in bold.
+Dice score for semantic segmentation, accuracy (%) for surgical phase recognition, and online inference efficiency on a single NVIDIA H100 GPU (parameters of the segmentation models). Best results per DINO version are shown in bold.
 
 <table>
-  <tr><th rowspan="2">DINO</th><th rowspan="2">Model</th><th rowspan="2">Pretraining</th><th colspan="2">Segmentation (Dice ↑)</th><th colspan="2">Phase recognition (Acc ↑)</th><th colspan="2">Efficiency</th></tr>
-  <tr><th>CholecSeg8k</th><th>RAMIE-seg</th><th>AutoLaparo</th><th>RAMIE-phase</th><th>Params (M)</th><th>FPS</th></tr>
-  <tr><td rowspan="4">v1</td><td rowspan="2">ViT-S</td><td>ImageNet</td><td>0.66</td><td>0.57</td><td>81.8</td><td>74.1</td><td rowspan="2">23</td><td rowspan="2">222</td></tr>
+  <tr><th rowspan="2">DINO</th><th rowspan="2">Model</th><th rowspan="2">Pretraining</th><th colspan="2">Segmentation (Dice ↑)</th><th colspan="2">Phase recognition (Acc ↑)</th><th colspan="3">Efficiency</th></tr>
+  <tr><th>CholecSeg8k</th><th>RAMIE-seg</th><th>AutoLaparo</th><th>RAMIE-phase</th><th>Params (M)</th><th>Seg. FPS</th><th>Phase FPS</th></tr>
+  <tr><td rowspan="4">v1</td><td rowspan="2">ViT-S</td><td>ImageNet</td><td>0.66</td><td>0.57</td><td>81.8</td><td>74.1</td><td rowspan="2">23</td><td rowspan="2">222</td><td rowspan="2">104</td></tr>
   <tr><td>SurgeNetXL</td><td><b>0.73</b></td><td>0.62</td><td><b>85.3</b></td><td><b>77.4</b></td></tr>
-  <tr><td rowspan="2">ViT-B</td><td>ImageNet</td><td>0.68</td><td>0.61</td><td>81.1</td><td>75.4</td><td rowspan="2">92</td><td rowspan="2">213</td></tr>
+  <tr><td rowspan="2">ViT-B</td><td>ImageNet</td><td>0.68</td><td>0.61</td><td>81.1</td><td>75.4</td><td rowspan="2">92</td><td rowspan="2">213</td><td rowspan="2">89</td></tr>
   <tr><td>SurgeNetXL</td><td><b>0.73</b></td><td><b>0.67</b></td><td>85.0</td><td>77.2</td></tr>
-  <tr><td rowspan="6">v2</td><td rowspan="2">ViT-S</td><td>LVD-142M</td><td>0.70</td><td>0.60</td><td>83.0</td><td>76.6</td><td rowspan="2">23</td><td rowspan="2">227</td></tr>
+  <tr><td rowspan="6">v2</td><td rowspan="2">ViT-S</td><td>LVD-142M</td><td>0.70</td><td>0.60</td><td>83.0</td><td>76.6</td><td rowspan="2">23</td><td rowspan="2">227</td><td rowspan="2">92</td></tr>
   <tr><td>SurgeNetXL</td><td>0.66</td><td>0.59</td><td>84.5</td><td>76.0</td></tr>
-  <tr><td rowspan="2">ViT-B</td><td>LVD-142M</td><td>0.71</td><td>0.67</td><td>85.3</td><td>77.4</td><td rowspan="2">90</td><td rowspan="2">224</td></tr>
+  <tr><td rowspan="2">ViT-B</td><td>LVD-142M</td><td>0.71</td><td>0.67</td><td>85.3</td><td>77.4</td><td rowspan="2">90</td><td rowspan="2">224</td><td rowspan="2">75</td></tr>
   <tr><td>SurgeNetXL</td><td>0.75</td><td>0.73</td><td>85.9</td><td>78.2</td></tr>
-  <tr><td rowspan="2">ViT-L</td><td>LVD-142M</td><td>0.63</td><td>0.70</td><td><b>86.1</b></td><td>77.9</td><td rowspan="2">311</td><td rowspan="2">123</td></tr>
+  <tr><td rowspan="2">ViT-L</td><td>LVD-142M</td><td>0.63</td><td>0.70</td><td><b>86.1</b></td><td>77.9</td><td rowspan="2">311</td><td rowspan="2">123</td><td rowspan="2">35</td></tr>
   <tr><td>SurgeNetXL</td><td><b>0.77</b></td><td><b>0.79</b></td><td>84.1</td><td><b>80.8</b></td></tr>
-  <tr><td rowspan="6">v3</td><td rowspan="2">ViT-S</td><td>LVD-1689M</td><td>0.73</td><td>0.63</td><td>81.1</td><td>75.4</td><td rowspan="2">23</td><td rowspan="2">153</td></tr>
+  <tr><td rowspan="6">v3</td><td rowspan="2">ViT-S</td><td>LVD-1689M</td><td>0.73</td><td>0.63</td><td>81.1</td><td>75.4</td><td rowspan="2">23</td><td rowspan="2">153</td><td rowspan="2">69</td></tr>
   <tr><td>SurgeNetXL</td><td>0.74</td><td>0.69</td><td>82.2</td><td>74.4</td></tr>
-  <tr><td rowspan="2">ViT-B</td><td>LVD-1689M</td><td>0.71</td><td>0.67</td><td>83.4</td><td>75.8</td><td rowspan="2">92</td><td rowspan="2">147</td></tr>
+  <tr><td rowspan="2">ViT-B</td><td>LVD-1689M</td><td>0.71</td><td>0.67</td><td>83.4</td><td>75.8</td><td rowspan="2">92</td><td rowspan="2">147</td><td rowspan="2">60</td></tr>
   <tr><td>SurgeNetXL</td><td>0.75</td><td>0.73</td><td>83.3</td><td>76.3</td></tr>
-  <tr><td rowspan="2">ViT-L</td><td>LVD-1689M</td><td>0.76</td><td>0.70</td><td>86.0</td><td>77.8</td><td rowspan="2">314</td><td rowspan="2">93</td></tr>
+  <tr><td rowspan="2">ViT-L</td><td>LVD-1689M</td><td>0.76</td><td>0.70</td><td>86.0</td><td>77.8</td><td rowspan="2">314</td><td rowspan="2">93</td><td rowspan="2">31</td></tr>
   <tr><td>SurgeNetXL</td><td><b>0.78</b></td><td><b>0.74</b></td><td><b>86.4</b></td><td><b>78.0</b></td></tr>
 </table>
 
