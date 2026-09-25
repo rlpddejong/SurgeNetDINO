@@ -1,0 +1,43 @@
+# Minimal RAMIE semantic config (one annotated frame per clip).
+# Dataset path is supplied on the CLI, e.g. --data.path /path/to/data
+# (the folder holding seg_videos / seg_video_masks / MTL_split).
+# num_classes (13) and img_size (336) are taken from the dataset defaults
+# and linked to the model/encoder automatically.
+# Backbone: SurgeNetXL-pretrained DINOv1 ViT-B/16, downloaded automatically
+# (cached in $TORCH_HOME/hub/checkpoints, default ~/.cache/torch/hub/checkpoints).
+trainer:
+  max_epochs: 25
+  logger:
+    class_path: lightning.pytorch.loggers.wandb.WandbLogger
+    init_args:
+      resume: allow
+      project: "eomt"
+      name: "eomt_base_dinov1_336_SurgeNetXL"
+model:
+  class_path: training.mask_classification_semantic.MaskClassificationSemantic
+  init_args:
+    # Disabled to keep this minimal: the annealing step schedule is dataset-size
+    # specific. Enable it and set attn_mask_annealing_{start,end}_steps for the
+    # full EoMT recipe.
+    attn_mask_annealing_enabled: False
+    lr: 1e-4
+    network:
+      class_path: models.eomt.EoMT
+      init_args:
+        num_q: 13
+        num_blocks: 3  # 12-layer backbone (EoMT default 4 is for 24 layers)
+        encoder:
+          class_path: models.vit.ViT
+          init_args:
+            backbone_name: vit_base_patch16_224
+            patch_size: 16
+            pretrained_weights: https://huggingface.co/rlpddejong/SurgeNetXL_DINOv1-v3/resolve/main/DINOv1_ViTb16_size224_SurgeNetXL.pth
+data:
+  class_path: datasets.RAMIE_semantic.RAMIESemantic
+  init_args:
+    img_size: [336, 336]  # must be a multiple of patch_size (16); 21 x 16 = 336
+    batch_size: 8
+    num_predict_frames: 16  # inference only: # of last frames per clip to predict
+                            # (override with the inference .sh / --num_predict_frames)
+    num_video_clips: 20      # inference only: for the first k clips, predict ALL frames
+                            # and write an overlay video (25 FPS) to inference_videos/
